@@ -425,10 +425,10 @@ namespace EducationCentreSystem
                 Console.WriteLine("===========================================");
                 Console.Write("Please select an option (1-6): ");
 
-                // Read user selection from the console (press Enter after typing)
+// Read user selection from the console (press Enter after typing)
                 string choice = Console.ReadLine();
 
-                // Handle the selection from the main menu using a switch-case; each case calls the corresponding function
+// Handle the selection from the main menu using a switch-case; each case calls the corresponding function
                 switch (choice)
                 {
                     case "1": AddNewData(); break;
@@ -455,8 +455,8 @@ namespace EducationCentreSystem
 // Store the selected user type (1,2,3). If invalid -> display message and return.
             string typeChoice = Console.ReadLine();
 
-            // Initialize the newPerson variable according to the selection; the object
-            // will be created and then InputInfo() will be called for detailed input.
+// Initialize the newPerson variable according to the selection; the object
+// will be created and then InputInfo() will be called for detailed input.
             Person newPerson = null;
 
             switch (typeChoice)
@@ -481,7 +481,7 @@ namespace EducationCentreSystem
             }
         }
 
-        // ViewAllData: list all existing records; if none, display a message
+// ViewAllData: list all existing records; if none, display a message
         static void ViewAllData()
         {
             Console.WriteLine("\n--- All Records ---");
@@ -494,15 +494,15 @@ namespace EducationCentreSystem
             Console.ReadLine();
         }
 
-        // ViewByGroup: ask the user for a role (Teacher/Admin/Student)
-        // and print all records that match the role (case-insensitive comparison)
+// ViewByGroup: ask the user for a role (Teacher/Admin/Student)
+// and print all records that match the role (case-insensitive comparison)
         static void ViewByGroup()
         {
             Console.WriteLine("\n--- View by Role ---");
             Console.Write("Enter role (Teacher / Admin / Student): ");
             string roleFilter = Console.ReadLine();
             
-            // `found` is used to check whether any matching records were found
+// `found` is used to check whether any matching records were found
             bool found = false;
             foreach (var person in peopleList)
             {
@@ -518,8 +518,8 @@ namespace EducationCentreSystem
             Console.ReadLine();
         }
 
-        // EditData: find a record by full name using FindPerson(), display current details
-        // and call EditInfo() for updates. Use Enter to keep existing values.
+// EditData: find a record by full name using FindPerson(), display current details
+// and call EditInfo() for updates. Use Enter to keep existing values.
         static void EditData()
         {
             Console.WriteLine("\n--- Edit Record ---");
@@ -528,28 +528,28 @@ namespace EducationCentreSystem
             if (p != null)
             {
                 Console.WriteLine("\n[ Current Details ]");
-                // Display current details before editing
+// Display current details before editing
                 p.DisplayInfo();
                 
                 Console.WriteLine("\n>>> UPDATING MODE (Press Enter to keep existing values) <<<");
                 p.EditInfo();
                 
-                // After editing is complete, display a success message
+// After editing is complete, display a success message
                 Console.WriteLine("\nRecord updated successfully!");
             }
             Console.WriteLine("Press Enter to return...");
             Console.ReadLine();
         }
 
-        // DeleteData: find a record by name and ask for confirmation before removing
-        // DeleteData: remove the record only after confirmation
+// DeleteData: find a record by name and ask for confirmation before removing
+// DeleteData: remove the record only after confirmation
         static void DeleteData()
         {
             Console.WriteLine("\n--- Delete Record ---");
             Person p = FindPerson();
             if (p != null)
             {
-                // Ask the user to confirm the deletion to avoid accidental removal
+// Ask the user to confirm the deletion to avoid accidental removal
                 Console.Write("Are you sure you want to delete " + p.Name + "? (y/n): ");
                 string confirm = Console.ReadLine();
                 if (confirm.ToLower() == "y")
@@ -563,9 +563,9 @@ namespace EducationCentreSystem
             Console.ReadLine();
         }
 
-        // FindPerson: helper to find a Person by full name (case-insensitive).
-        // Returns `null` if not found.
-        // Note: if the search name is empty or whitespace -> returns null.
+// FindPerson: helper to find a Person by full name (case-insensitive).
+// Returns `null` if not found.
+// Note: if the search name is empty or whitespace -> returns null.
         static Person FindPerson()
         {
             Console.Write("Enter the full name of the person: ");
@@ -573,7 +573,7 @@ namespace EducationCentreSystem
             
             if (string.IsNullOrWhiteSpace(searchName)) return null;
 
-            // Iterate through the list and compare names (convert to lowercase) to find a match
+// Iterate through the list and compare names (convert to lowercase) to find a match
             foreach (var person in peopleList)
             {
                 if (person.Name.ToLower() == searchName.ToLower())
